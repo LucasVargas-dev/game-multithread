@@ -5,7 +5,7 @@ import java.awt.Point;
 public class EnemySlow extends GameParticipant implements Runnable, IEnemy {
 
     public EnemySlow() {
-        super(new Point(55, 55), 4000);
+        super(new Point(540, 55), 200);
     }
 
     @Override
@@ -22,15 +22,22 @@ public class EnemySlow extends GameParticipant implements Runnable, IEnemy {
 
     @Override
     public void updatePosition() {
-        System.out.println("updateSlow");
         Point playerPositions = Player.getInstance().getPositions();
-        StringBuilder builder = new StringBuilder();
-        builder.append("Olá, sou um inimigo na posição ")
-                .append(getX()).append(",").append(getY())
-                .append(" e preciso encontrar o jogador que está na posição ")
-                .append(playerPositions.getX()).append(",").append(playerPositions.getY())
-                .append(". Para qual lado devo ir: LEFT, RIGHT, UP, DOWN? Escolha apenas um e responda no formato informado");
         
-        String response = new GptRequest().enviar(builder.toString());
+        int enemyX = getX();
+        int enemyY = getY();
+        
+        if (playerPositions.getX() < enemyX) {
+            moveLeft();
+        } else {
+            moveRight();
+        }
+
+        // Verifica se o jogador está acima ou abaixo do inimigo
+        if (playerPositions.getY() < enemyY) {
+            moveUp();
+        } else {
+            moveDown();
+        }
     }
 }

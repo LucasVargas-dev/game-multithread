@@ -2,12 +2,12 @@ package game;
 
 import java.awt.Point;
 
-public class EnemyFast extends GameParticipant implements Runnable, IEnemy {
+public class YellowBall extends GameParticipant implements Runnable, IEnemy {
     
-    public EnemyFast() {
-        super(new Point(20, 540), 150);
+    public YellowBall() {
+        super(new Point(40, 40), 400);
     }
-
+    
     @Override
     public void run() {
         while (true) {
@@ -28,16 +28,15 @@ public class EnemyFast extends GameParticipant implements Runnable, IEnemy {
         int enemyY = getY();
         
         if (playerPositions.getX() < enemyX) {
-            moveLeft();
-        } else {
             moveRight();
+        } else {
+            moveLeft();
         }
 
-        // Verifica se o jogador está acima ou abaixo do inimigo
         if (playerPositions.getY() < enemyY) {
-            moveUp();
-        } else {
             moveDown();
+        } else {
+            moveUp();
         }
     }
 }
