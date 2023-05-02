@@ -11,11 +11,11 @@ public class ApplicationUtilities {
     
     public int getRandomInt(int limit) {
         Random rand = new Random();
-        return rand.nextInt(600) + 1;
+        return rand.nextInt(limit - titleHeight) + 1;
     }
     
-    public Point getRandomPoint(int limitX, int limitY) {
-        return new Point(getRandomInt(limitX), getRandomInt(limitY));
+    public Point getRandomPoint() {
+        return new Point(getRandomInt(width), getRandomInt(height));
     }
 
     public int getHeight() {

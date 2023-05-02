@@ -164,11 +164,11 @@ public class Game extends JFrame implements Runnable {
         if (currentLevel == 15) {
             stop(true);
         } 
-
-        resetParticipantPosition(player, util.getRandomPoint(WIDTH, HEIGHT));
-        resetParticipantPosition(yellowBall, util.getRandomPoint(WIDTH, HEIGHT));
-        resetParticipantPosition(enemyFast, util.getRandomPoint(WIDTH, HEIGHT));
-        resetParticipantPosition(enemySlow, util.getRandomPoint(WIDTH, HEIGHT));
+        
+        resetParticipantPosition(player, util.getRandomPoint());
+        resetParticipantPosition(yellowBall, util.getRandomPoint());
+        resetParticipantPosition(enemyFast, util.getRandomPoint());
+        resetParticipantPosition(enemySlow, util.getRandomPoint());
 
         enemyFast.setMoveSpeedInMs(enemyFast.getMoveSpeedInMs() - 5);
         enemySlow.setMoveSpeedInMs(enemySlow.getMoveSpeedInMs() - 5);
